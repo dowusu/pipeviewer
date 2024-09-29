@@ -97,7 +97,10 @@ impl Timer {
 fn output_progress(stderr: &mut Stderr, bytes: usize, elapsed: String, rate: f64) {
     let bytes = style::style(format!("{} ", bytes)).with(Color::Red).bold();
     let elapsed = style::style(elapsed).with(Color::Green).bold();
-    let rate = style::style(format!(" [{:.0}b/s]", rate)).with(Color::Blue).bold().italic();
+    let rate = style::style(format!(" [{:.0}b/s]", rate))
+        .with(Color::Blue)
+        .bold()
+        .italic();
 
     let _ = execute!(
         stderr,
